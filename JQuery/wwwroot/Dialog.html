@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+</head>
+<body>
+    <div id="dialog" title="Basit Dialog">Bu bir basit dialog örnegidir</div>
+
+    <div id="dialog2" title="Buttonlu Dialog">Bu buttonlu bir  dialog örnegidir</div>
+    <input type="button" value="Ornek 1 Basit Dialog" id="ornek1">
+
+    <input type="button" value="Ornek 2 Button Ekleme" id="ornek2">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+</body>
+</html>
+<script>
+$(document).ready(function(){
+
+	//$( "#dialog" ).dialog();
+    $( "#dialog" ).dialog({
+        autoOpen:false
+    });
+
+    $("#ornek1").click(function(){
+        console.log("ornek1");
+        $("#dialog").dialog("open");
+    });
+
+    $("#ornek2").click(function(){
+        console.log("ornek2");
+        $("#dialog2").dialog({
+            buttons: [
+                {
+                text: "Ok",
+                icon: "ui-icon-heart",
+                click: function() {
+                    $( this ).dialog( "close" );
+                }
+
+                // Uncommenting the following line would hide the text,
+                // resulting in the label being used as a tooltip
+                //showText: false
+                },
+                {
+                text:"Vazgec",
+                icon:"ui-icon-cancel",
+                click:function(){
+                    $(this).dialog("close")
+                }
+                }
+            ]
+
+        });
+    });
+
+
+});
+</script>
