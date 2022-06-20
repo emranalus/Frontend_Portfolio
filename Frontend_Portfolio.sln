@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JQuery", "JQuery\JQuery.csproj", "{C01BA1A3-3AC9-45ED-99AD-5FCE9E54FA45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JQuery", "JQuery\JQuery.csproj", "{C01BA1A3-3AC9-45ED-99AD-5FCE9E54FA45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCore5", "WebCore5\WebCore5.csproj", "{D1E213FF-024B-4790-9B69-06FE4692BD4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebCore5", "WebCore5\WebCore5.csproj", "{D1E213FF-024B-4790-9B69-06FE4692BD4B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreEmpty6", "CoreEmpty6\CoreEmpty6.csproj", "{A5EC6B02-3214-45E6-B7FC-3F0182C3CB97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCore6", "WebCore6\WebCore6.csproj", "{0BA88E23-791E-4389-8F32-17970F947410}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{D1E213FF-024B-4790-9B69-06FE4692BD4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1E213FF-024B-4790-9B69-06FE4692BD4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1E213FF-024B-4790-9B69-06FE4692BD4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5EC6B02-3214-45E6-B7FC-3F0182C3CB97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5EC6B02-3214-45E6-B7FC-3F0182C3CB97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5EC6B02-3214-45E6-B7FC-3F0182C3CB97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5EC6B02-3214-45E6-B7FC-3F0182C3CB97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BA88E23-791E-4389-8F32-17970F947410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BA88E23-791E-4389-8F32-17970F947410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BA88E23-791E-4389-8F32-17970F947410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BA88E23-791E-4389-8F32-17970F947410}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
