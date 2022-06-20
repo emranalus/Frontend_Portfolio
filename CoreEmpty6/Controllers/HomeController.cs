@@ -9,7 +9,7 @@ namespace CoreEmpty6.wwwroot.Controllers
             return View();
         }
 
-        public IActionResult Hakkimizda()
+        public IActionResult About()
         {
             return View();
         }
