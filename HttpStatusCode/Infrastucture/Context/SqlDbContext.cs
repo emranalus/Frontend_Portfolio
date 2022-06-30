@@ -1,4 +1,5 @@
-﻿using HttpStatusCode.Models.Entities.Concrete;
+﻿using HttpStatusCode.Infrastucture.SeedData;
+using HttpStatusCode.Models.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 
 namespace HttpStatusCode.Infrastucture.Context
@@ -15,7 +16,8 @@ namespace HttpStatusCode.Infrastucture.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new CategorySeedData());
+
         }
 
     }
