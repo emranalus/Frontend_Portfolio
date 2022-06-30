@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebCore6", "WebCore6\WebCor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core6Mvc", "Core6Mvc\Core6Mvc.csproj", "{392326FF-40D2-4A83-8E2B-B3BFA0182864}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet_DataTransfer_ToView", "DotNet_DataTransfer_ToView\DotNet_DataTransfer_ToView.csproj", "{2F76A52C-6FFE-45F6-9564-8587448D5DE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet_DataTransfer_ToView", "DotNet_DataTransfer_ToView\DotNet_DataTransfer_ToView.csproj", "{2F76A52C-6FFE-45F6-9564-8587448D5DE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpStatusCode", "HttpStatusCode\HttpStatusCode.csproj", "{E8B25074-4C61-4528-9BCA-1352A42B83CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{2F76A52C-6FFE-45F6-9564-8587448D5DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F76A52C-6FFE-45F6-9564-8587448D5DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F76A52C-6FFE-45F6-9564-8587448D5DE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8B25074-4C61-4528-9BCA-1352A42B83CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8B25074-4C61-4528-9BCA-1352A42B83CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8B25074-4C61-4528-9BCA-1352A42B83CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8B25074-4C61-4528-9BCA-1352A42B83CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
