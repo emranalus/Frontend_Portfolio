@@ -63,10 +63,10 @@ namespace AuthenticationAndAuthorization.Controllers
         [AllowAnonymous]
         public IActionResult Login(string url)
         {
-            return View(new LoginDTO { ReturnUrl = url });
+            return View(new LoginDTO { });
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken, AllowAnonymous]
         public async Task<IActionResult> Login(LoginDTO loginDTO)
         {
 
@@ -81,7 +81,7 @@ namespace AuthenticationAndAuthorization.Controllers
 
                     if (signInResult.Succeeded)
                     {
-                        return RedirectToAction(loginDTO.ReturnUrl);
+                        return RedirectToAction("", "Home");
                     }
                     else
                     {
@@ -93,6 +93,12 @@ namespace AuthenticationAndAuthorization.Controllers
             }
 
             return View(loginDTO);
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Login");
         }
 
     }

@@ -12,7 +12,7 @@ namespace AuthenticationAndAuthorization.Models.DTOs
         [Required(ErrorMessage = "Password is a must!")]
         [Display(Name = "Password")]
         public string Password { get; set; }
-        public string ReturnUrl { get; set; }
+        //public string ReturnUrl { get; set; }
 
     }
 }
