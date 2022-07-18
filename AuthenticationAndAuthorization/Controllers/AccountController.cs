@@ -60,9 +60,39 @@ namespace AuthenticationAndAuthorization.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Login(string url)
         {
             return View(new LoginDTO { ReturnUrl = url });
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginDTO loginDTO)
+        {
+
+            if (ModelState.IsValid)
+            {
+                AppUser user = await userManager.FindByNameAsync(loginDTO.UserName);
+
+                if (user != null)
+                {
+                    var signInResult = await signInManager.PasswordSignInAsync(loginDTO.UserName,
+                        loginDTO.Password, false, false);
+
+                    if (signInResult.Succeeded)
+                    {
+                        return RedirectToAction(loginDTO.ReturnUrl);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Wrong Username or Password!");
+                    }
+
+                }
+
+            }
+
+            return View(loginDTO);
         }
 
     }
