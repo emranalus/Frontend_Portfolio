@@ -101,5 +101,38 @@ namespace AuthenticationAndAuthorization.Controllers
             return RedirectToAction("Login");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Edit()
+        {
+            var user = await userManager.FindByNameAsync(User.Identity.Name);
+            UserUpdateDTO userUpdateDTO = new UserUpdateDTO(user);
+
+            return View(userUpdateDTO);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(UserUpdateDTO updateDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                AppUser user = await userManager.FindByNameAsync(User.Identity.Name);
+                user.UserName = updateDTO.Username;
+
+                if (updateDTO.Password != null)
+                {
+                    user.PasswordHash = passwordHasher.HashPassword(user, updateDTO.Password);
+                }
+
+                var result = await userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+
+            return View(updateDTO);
+        }
+
     }
 }
