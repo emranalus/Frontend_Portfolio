@@ -1,9 +1,8 @@
-﻿using AuthenticationAndAuthorization.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using SampleAuthetication.Models;
 using System.Diagnostics;
 
-namespace AuthenticationAndAuthorization.Controllers
+namespace SampleAuthetication.Controllers
 {
     public class HomeController : Controller
     {
@@ -19,14 +18,7 @@ namespace AuthenticationAndAuthorization.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Manager")]
         public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "Manager")]
-        public IActionResult Management()
         {
             return View();
         }

@@ -1,13 +1,13 @@
 ﻿using AuthenticationAndAuthorization.Models.DTOs;
 using AuthenticationAndAuthorization.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace AuthenticationAndAuthorization.Controllers
 {
-    //[Authorize(Roles = "Admin")]
-    //[Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         private readonly UserManager<AppUser> userManager;
@@ -58,7 +58,7 @@ namespace AuthenticationAndAuthorization.Controllers
             return View(name);
         }
 
-        public async Task<IActionResult> AssignedUser(string id)
+        public async Task<IActionResult> AssignedRole(string id)
         {
             IdentityRole identityRole = await roleManager.FindByIdAsync(id);
             List<AppUser> hasRole = new List<AppUser>();
@@ -80,7 +80,7 @@ namespace AuthenticationAndAuthorization.Controllers
 
             }
 
-            AssignedRoleDTO assignedUserDTO = new AssignedRoleDTO
+            AssignedRoleDTO assignedRoleDTO = new AssignedRoleDTO
             {
                 Role = identityRole,
                 HasRole = hasRole,
@@ -88,7 +88,35 @@ namespace AuthenticationAndAuthorization.Controllers
                 RoleName = identityRole.Name
             };
 
-            return View(assignedUserDTO);
+            return View(assignedRoleDTO);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> AssignedRole(AssignedRoleDTO roleDTO)
+        {
+            IdentityResult result;
+            string[] addIds = roleDTO.AddIds;
+            string[] deleteIds = roleDTO.DeleteIds;
+
+            if (addIds != null)
+            {
+                foreach (var userId in addIds)
+                {
+                    AppUser user = await userManager.FindByIdAsync(userId);
+                    result = await userManager.AddToRoleAsync(user, roleDTO.RoleName);
+                }
+            }
+
+            if (deleteIds != null)
+            {
+                foreach (var userId in deleteIds)
+                {
+                    AppUser user = await userManager.FindByIdAsync(userId);
+                    result = await userManager.RemoveFromRoleAsync(user, roleDTO.RoleName);
+                }
+            }
+
+            return RedirectToAction("Index");
         }
 
     }

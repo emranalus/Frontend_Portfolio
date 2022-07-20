@@ -27,7 +27,8 @@
                                     <td user-role="@item.Id">@item.Id</td>
                                     
                                     <td><a 
-                                        asp-action="AssignedUser" 
+                                        asp-action="AssignedRole" 
+                                        asp-controller="Role"
                                         asp-route-id="@item.Id" 
                                         class="btn btn-outline-success">Assigned User</a>
                                     </td>
